@@ -1,0 +1,122 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 1,
+  "margin": 0,
+
+  "modules-left": ["niri/window"],
+  "modules-center": [],
+  "modules-right": [
+    "tray",
+    "clock",
+    "niri/language",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "cpu",
+    "memory",
+    "battery"
+  ],
+
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃮 {:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#e67e80'>{}</span>",
+        "weeks": "<span color='#a7c080'><b>W{}</b></span>",
+        "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+        "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "niri/language": {
+    "format": "{short}"
+  },
+
+  "cpu": {
+    "format": "  {usage:3}%",
+    "tooltip": true,
+    "interval": 10
+  },
+
+  "memory": {
+    "format": "  {percentage:3}%",
+    "interval": 10
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity:3}%",
+    "format-charging": "󰂄 {capacity:3}%",
+    "format-plugged": "󰚥 {capacity:3}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "network": {
+    "format-wifi": "{icon} ",
+    "format-disconnected": "󰤭 Disconnected",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-alt": "{essid}: {ipaddr}/{cidr}",
+    "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}"
+  },
+
+  "pulseaudio": {
+    "format": "{format_source} {icon} {volume:3}%",
+    "format-bluetooth": "{format_source} 󰂰 {volume:3}%",
+    "format-bluetooth-muted": "{format_source} 󰂲 {icon}",
+    "format-muted": "{format_source} 󰝟 {volume:3}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-middle": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "scroll-step": 0.1
+  },
+
+  "backlight": {
+    "format": "{icon} {percent:3}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set -n=1% 1%-",
+    "scroll-step": 0.1,
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5
+  }
+}
