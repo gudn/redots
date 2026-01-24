@@ -20,6 +20,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
@@ -28,6 +29,9 @@
       ...
     }:
     {
+      nixosModules = {
+        host-modules = ./host-modules;
+      };
       nixosConfigurations = {
         udn-laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -40,7 +44,7 @@
               ;
           };
           modules = [
-            ./host-modules
+            self.nixosModules.host-modules
             ./hosts/udn-laptop
           ];
         };
