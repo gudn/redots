@@ -1,9 +1,16 @@
 {
   pkgs,
+  lib,
+  config,
+  osConfig,
   ...
 }:
 {
-  config = {
+  options = {
+    my.zed.enable = lib.mkEnableOption "Enable Zed editor";
+  };
+
+  config = lib.mkIf (config.my.zed.enable && osConfig.my.desktop.enable) {
     programs.zed-editor = {
       enable = true;
       package = pkgs.zed-editor;

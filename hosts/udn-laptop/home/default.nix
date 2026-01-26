@@ -1,16 +1,18 @@
 { pkgs, ... }:
 {
   imports = [
-    ./zed.nix
     ./dev.nix
   ];
 
   config = {
     my = {
-      base.enable = true;
-      ssh-agent.enable = true;
       user.fullname = "Daniil Novoselov";
       user.email = "me@gudn.link";
+
+      base.enable = true;
+      ssh-agent.enable = true;
+
+      zed.enable = true;
     };
 
     home.username = "udn";
