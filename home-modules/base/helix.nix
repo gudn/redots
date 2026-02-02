@@ -42,6 +42,17 @@
               args = [ "--filename=%{buffer_name}" ];
             };
           }
+          {
+            name = "go";
+            auto-format = true;
+            formatter = {
+              command = "${pkgs.golangci-lint}/bin/golangci-lint";
+              args = [
+                "fmt"
+                "--stdin"
+              ];
+            };
+          }
         ];
       };
     };
