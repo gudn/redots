@@ -18,6 +18,8 @@
       border-color = "#63A4FF";
       border-radius = 10;
       progress-color = "over #3A3A3A";
+      outer-margin = "10,0";
+      anchor = "bottom-right";
 
       default-timeout = 10000;
     };
