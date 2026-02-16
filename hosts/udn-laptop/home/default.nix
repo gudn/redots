@@ -27,6 +27,7 @@
       gnuplot
       steam
       wireshark
+      qFlipper
     ];
 
     xdg.desktopEntries.steam-offload = {
