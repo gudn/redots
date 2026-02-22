@@ -32,6 +32,17 @@
               "--clang-tidy"
             ];
           };
+          julia = {
+            command = "${pkgs.julia}/bin/julia";
+            args = [
+              "--startup-file=no"
+              "--history-file=no"
+              "--quiet"
+              "--project=@temp"
+              "-e"
+              ''import Pkg; Pkg.add("LanguageServer"); using LanguageServer; runserver()''
+            ];
+          };
         };
         language = [
           {

@@ -11,6 +11,7 @@
       gopls
       gradle_9
       jdk
+      julia
       lldb
       mitmproxy
       nixfmt-rfc-style
