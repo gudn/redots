@@ -38,7 +38,7 @@
         tab_bar_edge = "bottom";
         tab_bar_style = "powerline";
         tab_bar_align = "left";
-        tab_bar_min_tabs = 1;
+        tab_bar_min_tabs = 2;
         tab_powerline_style = "slanted";
         tab_title_template = "{fmt.fg.red}{bell_symbol}{fmt.fg.tab}{tab.progress_percent}{title}";
 
@@ -63,45 +63,8 @@
 
         "ctrl+shift+z" = "scroll_to_prompt -1";
         "ctrl+shift+x" = "scroll_to_prompt +1";
-        "ctrl+a>t" = "show_scrollback";
-        "ctrl+a>g" = "show_last_command_output";
-
-        "ctrl+a>minus" = "launch --cwd=current --location=vsplit";
-        "ctrl+a>shift+minus" = "launch --cwd=current --location=hsplit";
-        "ctrl+a>enter" = "launch --cwd=current --location=split";
-        "ctrl+a>h" = "neighboring_window left";
-        "ctrl+a>j" = "neighboring_window down";
-        "ctrl+a>k" = "neighboring_window up";
-        "ctrl+a>l" = "neighboring_window right";
-        "ctrl+a>left" = "neighboring_window left";
-        "ctrl+a>down" = "neighboring_window down";
-        "ctrl+a>up" = "neighboring_window up";
-        "ctrl+a>right" = "neighboring_window right";
-        "ctrl+a>shift+h" = "move_window left";
-        "ctrl+a>shift+j" = "move_window down";
-        "ctrl+a>shift+k" = "move_window up";
-        "ctrl+a>shift+l" = "move_window right";
-        "ctrl+a>shift+left" = "move_window left";
-        "ctrl+a>shift+down" = "move_window down";
-        "ctrl+a>shift+up" = "move_window up";
-        "ctrl+a>shift+right" = "move_window right";
-        "ctrl+a>r" = "start_resizing_window";
-
-        "ctrl+a>c" = "new_tab";
-        "ctrl+a>w" = "close_tab";
-        "ctrl+a>i" = "set_tab_title";
-        "ctrl+a>1" = "goto_tab 1";
-        "ctrl+a>2" = "goto_tab 2";
-        "ctrl+a>3" = "goto_tab 3";
-        "ctrl+a>4" = "goto_tab 4";
-        "ctrl+a>5" = "goto_tab 5";
-        "ctrl+a>6" = "goto_tab 6";
-        "ctrl+a>7" = "goto_tab 7";
-        "ctrl+a>8" = "goto_tab 8";
-        "ctrl+a>9" = "goto_tab 9";
-        "ctrl+a>]" = "next_tab";
-        "ctrl+a>[" = "previous_tab";
-        "ctrl+a>tab" = "goto_tab -1";
+        "ctrl+a>h" = "show_scrollback";
+        "ctrl+a>r" = "show_last_command_output";
 
         "ctrl+a>u" = "kitten unicode_input";
         "ctrl+a>f" = "kitten hints --type path --program -";
