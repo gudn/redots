@@ -67,9 +67,10 @@
         "ctrl+a>r" = "show_last_command_output";
 
         "ctrl+a>u" = "kitten unicode_input";
-        "ctrl+a>f" = "kitten hints --type path --program -";
-        "ctrl+a>v" = "kitten hints --type hash --program -";
+        "ctrl+a>f" = "kitten hints --type path --program @";
+        "ctrl+a>v" = "kitten hints --type hash --program @";
         "ctrl+a>y" = "kitten hints --type hyperlink";
+        "ctrl+a>l" = "kitten hints --type url --url-prefixes http,https";
         "ctrl+a>escape" = "kitty_shell tab";
       };
     };
