@@ -36,12 +36,15 @@
     };
   };
 
+  services.udev.extraRules = builtins.readFile ./flipperzero.rules;
+
   users.users.udn = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "networkmanager"
       "input"
+      "dialout"
     ];
   };
   home-manager.users.udn = ./home;
