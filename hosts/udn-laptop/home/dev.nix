@@ -10,7 +10,7 @@
       go
       gopls
       gradle_9
-      jdk
+      jdk25
       julia
       lldb
       mitmproxy
