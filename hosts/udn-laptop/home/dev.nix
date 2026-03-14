@@ -12,6 +12,7 @@
       gradle_9
       jdk25
       julia
+      just
       lldb
       mitmproxy
       nixfmt-rfc-style
