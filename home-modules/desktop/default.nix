@@ -12,7 +12,6 @@
     ./swaybg.nix
     ./kitty.nix
     ./waybar.nix
-    ./zed.nix
   ];
 
   config = lib.mkIf osConfig.my.desktop.enable {

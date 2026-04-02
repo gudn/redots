@@ -11,8 +11,6 @@
 
       base.enable = true;
       ssh-agent.enable = true;
-
-      zed.enable = true;
     };
 
     home.username = "udn";
