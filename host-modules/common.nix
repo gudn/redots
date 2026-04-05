@@ -79,10 +79,11 @@
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        glibc
-        zlib
-        openssl
         curl
+        glibc
+        libcxx
+        openssl
+        zlib
       ];
     };
 
