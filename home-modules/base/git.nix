@@ -53,7 +53,7 @@
 
         core.quotePath = true;
         branch.sort = "-committerdate";
-        tag.sort = "-taggerdate";
+        tag.sort = "-creatordate";
         log.date = "iso";
       };
     };
