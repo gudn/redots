@@ -46,6 +46,7 @@
         shellInit = builtins.readFile ./init.fish;
         functions = {
           fish_prompt = builtins.readFile ./prompt.fish;
+          cdg = "cd (${pkgs.git}/bin/git rev-parse --show-toplevel)";
         };
       };
       yazi = {
