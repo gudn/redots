@@ -1,14 +1,11 @@
 {
   pkgs,
-  nixpkgs-unstable,
-  home-manager,
-  nur,
-  rust-overlay,
   config,
+  inputs,
   ...
 }:
 {
-  imports = [
+  imports = with inputs; [
     home-manager.nixosModules.home-manager
     nur.modules.nixos.default
   ];
@@ -34,7 +31,7 @@
       overlays =
         let
           unstable-overlay = final: prev: {
-            unstable = import nixpkgs-unstable {
+            unstable = import inputs.nixpkgs-unstable {
               system = config.nixpkgs.hostPlatform.system;
               config.allowUnfree = true;
             };
@@ -42,7 +39,7 @@
         in
         [
           unstable-overlay
-          rust-overlay.overlays.default
+          inputs.rust-overlay.overlays.default
         ];
 
       config.allowUnfree = true;

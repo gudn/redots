@@ -36,12 +36,14 @@
         udn-laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit
-              nixpkgs-unstable
-              home-manager
-              nur
-              rust-overlay
-              ;
+            inputs = {
+              inherit
+                nixpkgs-unstable
+                home-manager
+                nur
+                rust-overlay
+                ;
+            };
           };
           modules = [
             self.nixosModules.host-modules
