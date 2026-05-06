@@ -23,7 +23,6 @@
       fastfetch
       fd
       file
-      htop
       jq
       lshw
       nix-index
