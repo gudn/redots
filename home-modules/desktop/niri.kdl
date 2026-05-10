@@ -25,12 +25,21 @@ input {
 layout {
   gaps 12
   center-focused-column "never"
+
   preset-column-widths {
+    proportion 0.33333
     proportion 0.5
     proportion 0.66667
-    proportion 0.33333
+    proportion 1.0
   }
   default-column-width { proportion 0.5; }
+
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+    proportion 1.0
+  }
 
   focus-ring {
     width 4
@@ -193,12 +202,13 @@ binds {
   Mod+Comma  { consume-window-into-column; }
   Mod+Period { expel-window-from-column; }
 
-  Mod+R { switch-preset-column-width; }
-  Mod+Shift+R { switch-preset-window-height; }
-  Mod+Ctrl+R { reset-window-height; }
-  Mod+F { maximize-column; }
-  Mod+Shift+F { fullscreen-window; }
+  Mod+F { switch-preset-column-width; }
+  Mod+Shift+F { switch-preset-column-width-back; }
   Mod+Ctrl+F { expand-column-to-available-width; }
+  Mod+R { switch-preset-window-height; }
+  Mod+Shift+R { switch-preset-window-height-back; }
+
+  Mod+F11 { fullscreen-window; }
 
   Mod+C { center-column; }
   Mod+Ctrl+C { center-visible-columns; }
