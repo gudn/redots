@@ -80,6 +80,7 @@
       fontconfig.useEmbeddedBitmaps = true;
       packages = with pkgs; [
         nerd-fonts.jetbrains-mono
+        liberation_ttf
       ];
     };
   };
