@@ -2,6 +2,7 @@
   pkgs,
   config,
   inputs,
+  redots-pkgs,
   ...
 }:
 {
@@ -70,6 +71,7 @@
 
     home-manager = {
       sharedModules = [ ../home-modules ];
+      extraSpecialArgs = { inherit redots-pkgs; };
       useGlobalPkgs = true;
       useUserPackages = true;
     };

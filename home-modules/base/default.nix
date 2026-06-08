@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  redots-pkgs,
   ...
 }:
 {
@@ -37,33 +38,20 @@
       usbutils
       wget
       zip
+      redots-pkgs.nnn
     ];
 
     programs = {
+      zoxide.enable = true;
       fish = {
         enable = true;
         shellInit = builtins.readFile ./init.fish;
+        interactiveShellInit = ''
+          source ${redots-pkgs.nnn}/share/quitcd/quitcd.fish
+        '';
         functions = {
           fish_prompt = builtins.readFile ./prompt.fish;
           cdg = "cd (${pkgs.git}/bin/git rev-parse --show-toplevel)";
-        };
-      };
-      yazi = {
-        enable = true;
-        shellWrapperName = "y";
-        settings = {
-          mgr = {
-            sort_by = "natural";
-            sort_sensitive = false;
-            sort_dir_first = true;
-            sort_translit = true;
-            show_symlink = false;
-          };
-
-          preview = {
-            wrap = "no";
-            tab_size = 2;
-          };
         };
       };
       btop = {

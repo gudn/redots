@@ -29,17 +29,25 @@
       ...
     }:
     {
+      packages.x86_64-linux =
+        let
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+        in
+        {
+          nnn = pkgs.callPackage ./pkgs/nnn { };
+        };
       nixosModules = {
         host-modules = ./host-modules;
       };
       nixosConfigurations = {
-        udn-laptop = nixpkgs.lib.nixosSystem {
+        udn-laptop = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
+            redots-pkgs = self.packages."${system}";
             inputs = {
               inherit
-                nixpkgs-unstable
                 home-manager
+                nixpkgs-unstable
                 nur
                 rust-overlay
                 ;
