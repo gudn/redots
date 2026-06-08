@@ -24,7 +24,7 @@
       wireplumber
       wtype
       wl-clipboard
-      xfce.thunar
+      thunar
     ];
 
     xdg.configFile = {
@@ -54,12 +54,13 @@
       };
     };
 
-    gtk = {
+    gtk = rec {
       enable = true;
       theme = {
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+      gtk4.theme = theme;
     };
 
     qt = {

@@ -15,7 +15,7 @@
       just
       lldb
       mitmproxy
-      nixfmt-rfc-style
+      nixfmt
       nodejs_24
       qemu
       rizin

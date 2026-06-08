@@ -24,6 +24,7 @@
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = true;
     };
 
     home.shell.enableShellIntegration = true;
