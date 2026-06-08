@@ -71,7 +71,6 @@
     };
 
     services = {
-      blueman.enable = true;
       printing.enable = true;
     };
 
