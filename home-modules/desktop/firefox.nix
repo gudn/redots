@@ -49,6 +49,14 @@
           "browser.contentblocking.report.hide_vpn_banner" = true;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.uidensity" = 1;
+          "sidebar.animation.duration-ms" = 100;
+          "sidebar.animation.expand-on-hover.delay-duration-ms" = 100;
+          "sidebar.animation.expand-on-hover.duration-ms" = 100;
+          "sidebar.verticalTabs" = true;
+          "sidebar.expandOnHover" = true;
+          "sidebar.history.sortOption" = "date";
+          "sidebar.main.tools" = "history";
+          "sidebar.visibility" = "expand-on-hover";
           "browser.uiCustomization.state" = {
             placements = {
               widget-overflow-fixed-list = [ ];
@@ -57,22 +65,23 @@
                 "back-button"
                 "forward-button"
                 "stop-reload-button"
+                "firefox-view-button"
                 "urlbar-container"
                 "downloads-button"
                 "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
+                "foxyproxy_eric_h_jung-browser-action"
                 "unified-extensions-button"
+                "alltabs-button"
               ];
               toolbar-menubar = [ "menubar-items" ];
               TabsToolbar = [
-                "firefox-view-button"
-                "tabbrowser-tabs"
-                "new-tab-button"
-                "alltabs-button"
               ];
-              vertical-tabs = [ ];
+              vertical-tabs = [
+                "tabbrowser-tabs"
+              ];
               PersonalToolbar = [ ];
             };
-            currentVersion = 22;
+            currentVersion = 24;
             newElementCount = 3;
           };
           "browser.urlbar.shortcuts.actions" = false;
