@@ -18,13 +18,14 @@
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl
+      foliate
       pavucontrol
       swaybg
       telegram-desktop
-      wireplumber
-      wtype
-      wl-clipboard
       thunar
+      wireplumber
+      wl-clipboard
+      wtype
     ];
 
     xdg.configFile = {
