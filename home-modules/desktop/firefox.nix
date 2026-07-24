@@ -133,26 +133,6 @@
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };
-
-            perplexity = {
-              id = "perplexity";
-              name = "Perplexity";
-
-              urls = [
-                {
-                  template = "https://www.perplexity.ai/";
-                  params = [
-                    {
-                      name = "q";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-
-              icon = "https://www.perplexity.ai/favicon.ico";
-              definedAliases = [ "@p" ];
-            };
           };
         };
 
