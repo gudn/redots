@@ -60,7 +60,7 @@
         ExecStart =
           let
             cmds = [
-              "timeout 600 '${pkgs.systemd}/bin/systemctl suspend'"
+              "timeout 300 '${pkgs.systemd}/bin/systemctl suspend'"
               "before-sleep '${pkgs.systemd}/bin/loginctl lock-session'"
               "lock '${pkgs.hyprlock}/bin/hyprlock'"
             ];
