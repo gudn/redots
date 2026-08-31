@@ -26,14 +26,12 @@
       file
       jq
       lshw
-      nix-index
       p7zip
       parallel
       ripgrep
       rsync
       sqlite-interactive
       tldr
-      unstable.comma
       unzip
       usbutils
       wget
@@ -42,6 +40,7 @@
     ];
 
     programs = {
+      nix-index-database.comma.enable = true;
       zoxide.enable = true;
       fish = {
         enable = true;

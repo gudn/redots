@@ -3,6 +3,7 @@
   config,
   inputs,
   redots-pkgs,
+  nix-index-database,
   ...
 }:
 {
@@ -70,7 +71,10 @@
     };
 
     home-manager = {
-      sharedModules = [ ../home-modules ];
+      sharedModules = [
+        ../home-modules
+        nix-index-database.homeModules.default
+      ];
       extraSpecialArgs = { inherit redots-pkgs; };
       useGlobalPkgs = true;
       useUserPackages = true;

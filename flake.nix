@@ -16,6 +16,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,6 +30,7 @@
       home-manager,
       nur,
       rust-overlay,
+      nix-index-database,
       ...
     }:
     {
@@ -44,6 +49,7 @@
           system = "x86_64-linux";
           specialArgs = {
             redots-pkgs = self.packages."${system}";
+            inherit nix-index-database;
             inputs = {
               inherit
                 home-manager
