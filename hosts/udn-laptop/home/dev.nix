@@ -4,7 +4,7 @@
     home.packages =
       let
         rust = (
-          rust-bin.stable.latest.default.override {
+          pkgs.rust-bin.stable.latest.default.override {
             extensions = [
               "rust-src"
               "rust-docs"
