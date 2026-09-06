@@ -29,8 +29,8 @@
         nixfmt
         nodejs_24
         rizin
-        rizinPlugins.rz-ghidra
         rust
+        unstable.julia
       ];
 
     services.podman = {
