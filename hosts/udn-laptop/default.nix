@@ -18,7 +18,7 @@
 
   hardware.nvidia = {
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -31,8 +31,8 @@
         enableOffloadCmd = true;
       };
 
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:3:0:0";
+      intelBusId = "PCI:0@0:2:0";
+      nvidiaBusId = "PCI:3@0:0:0";
     };
   };
 

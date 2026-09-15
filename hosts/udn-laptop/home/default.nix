@@ -16,7 +16,7 @@
     home.username = "udn";
     home.homeDirectory = "/home/udn";
 
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
 
     home.packages = with pkgs; [
       blender
