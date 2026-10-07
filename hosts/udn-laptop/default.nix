@@ -6,9 +6,9 @@
 
   networking.hostName = "udn-laptop";
 
-  my = {
+  redots = {
     desktop.enable = true;
-    laptop.enable = true;
+    flipperzero.enable = true;
   };
 
   services.xserver.videoDrivers = [
@@ -35,8 +35,6 @@
       nvidiaBusId = "PCI:3@0:0:0";
     };
   };
-
-  services.udev.extraRules = builtins.readFile ./flipperzero.rules;
 
   users.users.udn = {
     isNormalUser = true;
