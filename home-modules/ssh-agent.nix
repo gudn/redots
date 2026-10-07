@@ -6,10 +6,10 @@
 }:
 {
   options = {
-    my.ssh-agent.enable = lib.mkEnableOption "Enable ssh-agent";
+    redots.ssh-agent.enable = lib.mkEnableOption "Enable ssh-agent";
   };
 
-  config = lib.mkIf config.my.ssh-agent.enable {
+  config = lib.mkIf config.redots.ssh-agent.enable {
     systemd.user.sessionVariables = {
       SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
     };

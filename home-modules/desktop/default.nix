@@ -1,46 +1,41 @@
 {
   pkgs,
   lib,
+  config,
   osConfig,
   ...
 }:
 {
   imports = [
-    ./firefox.nix
     ./fuzzel.nix
     ./mako.nix
     ./swaybg.nix
-    ./kitty.nix
     ./waybar.nix
   ];
 
-  config = lib.mkIf osConfig.redots.desktop.enable {
+  options = {
+    redots.desktop.enable = lib.mkEnableOption "desktop";
+  };
+
+  config = lib.mkIf config.redots.desktop.enable {
+    assertions = [
+      {
+        assertion = osConfig.redots.desktop.enable;
+        message = "home desktop configuration enabled without os desktop";
+      }
+    ];
+
     home.packages = with pkgs; [
       adwaita-icon-theme
       brightnessctl
-      foliate
       pavucontrol
       swaybg
-      telegram-desktop
-      thunar
       wireplumber
-      wl-clipboard
-      wtype
     ];
 
     xdg.configFile = {
       "niri/config.kdl".source = ./niri.kdl;
       "hypr/hyprlock.conf".source = ./hyprlock.conf;
-    };
-
-    home.file.lock = {
-      target = "bin/lock";
-      executable = true;
-      text = ''
-        #!/bin/sh
-
-        exec ${pkgs.systemd}/bin/loginctl lock-session
-      '';
     };
 
     home.pointerCursor = {

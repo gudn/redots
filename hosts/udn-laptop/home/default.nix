@@ -5,12 +5,12 @@
   ];
 
   config = {
-    my = {
+    redots = {
       user.fullname = "Daniil Novoselov";
       user.email = "me@gudn.link";
 
-      base.enable = true;
-      ssh-agent.enable = true;
+      presets.base.enable = true;
+      presets.desktop.enable = true;
     };
 
     home.username = "udn";
@@ -22,7 +22,6 @@
       blender
       ffmpeg
       gimp
-      gnuplot
       steam
       wireshark
       qFlipper

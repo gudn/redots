@@ -1,12 +1,19 @@
 {
   pkgs,
   lib,
+  config,
   osConfig,
   ...
 }:
 {
-  config = lib.mkIf osConfig.redots.desktop.enable {
-    home.packages = [ pkgs.nixos-icons ];
+  options = {
+    redots.firefox.enable = lib.mkEnableOption "firefox";
+  };
+
+  config = lib.mkIf config.redots.firefox.enable {
+    warnings = lib.mkIf (!osConfig.redots.desktop.enable) [
+      "Firefox enabled without desktop"
+    ];
 
     programs.firefox = {
       enable = true;
@@ -100,11 +107,11 @@
 
         search = {
           force = true;
-          default = "google";
+          default = "ddg";
           privateDefault = "ddg";
           order = [
-            "google"
             "ddg"
+            "google"
             "nix-packages"
           ];
           engines = {
@@ -148,7 +155,6 @@
     };
 
     xdg.mimeApps = {
-      enable = true;
       defaultApplications = {
         "text/html" = [ "firefox.desktop" ];
         "text/xml" = [ "firefox.desktop" ];

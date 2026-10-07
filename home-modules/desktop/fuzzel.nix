@@ -1,10 +1,10 @@
 {
   lib,
-  osConfig,
+  config,
   ...
 }:
 {
-  config = lib.mkIf osConfig.redots.desktop.enable {
+  config = lib.mkIf config.redots.desktop.enable {
     programs.fuzzel = {
       enable = true;
       settings = {

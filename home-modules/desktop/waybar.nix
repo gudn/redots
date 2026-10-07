@@ -1,11 +1,11 @@
 {
   pkgs,
   lib,
-  osConfig,
+  config,
   ...
 }:
 {
-  config = lib.mkIf osConfig.redots.desktop.enable {
+  config = lib.mkIf config.redots.desktop.enable {
     home.packages = [ pkgs.waybar ];
 
     xdg.configFile = {
