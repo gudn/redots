@@ -35,8 +35,8 @@
         inputs.rust-overlay.overlays.default
         (final: prev: {
           unstable = import inputs.nixpkgs-unstable {
+            config = final.config;
             system = config.nixpkgs.hostPlatform.system;
-            config.allowUnfree = true;
           };
         })
       ];

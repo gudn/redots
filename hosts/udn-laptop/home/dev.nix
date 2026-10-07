@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   config = {
+    redots.code.nix.enable = true;
+
     home.packages =
       let
         rust = (
@@ -21,6 +23,7 @@
         clang-tools
         gdb
         go
+        nixfmt
         gopls
         gradle_9
         jdk25
