@@ -11,6 +11,7 @@
     ./lazygit.nix
     ./presets
     ./ssh-agent.nix
+    ./vendor
   ];
 
   options = {

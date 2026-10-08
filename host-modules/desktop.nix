@@ -21,9 +21,12 @@
       menus.enable = true;
       mime.enable = true;
       icons.enable = true;
-      portal.enable = true;
       sounds.enable = true;
     };
+    environment.pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+    ];
 
     security.rtkit.enable = true;
     services = {
@@ -45,7 +48,10 @@
         HandlePowerKey = "suspend";
         HandlePowerKeyLongPress = "poweroff";
       };
+      displayManager.ly.enable = true;
     };
+
+    programs.niri.enable = true;
 
     powerManagement.enable = true;
     hardware = {
@@ -60,46 +66,6 @@
         settings = {
           Policy.AutoEnable = true;
         };
-      };
-    };
-
-    fonts = {
-      enableDefaultPackages = true;
-      fontconfig.useEmbeddedBitmaps = true;
-      packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-        liberation_ttf
-      ];
-    };
-
-    programs.niri.enable = true;
-    services.displayManager.ly.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      xdg-utils
-      swayidle
-      hyprlock
-      xwayland-satellite
-    ];
-
-    systemd.user.services.swayidle = {
-      description = "Idle management daemon for Wayland";
-      documentation = [ "man:swayidle(1)" ];
-
-      partOf = [ "graphical-session.target" ];
-      after = [ "niri.service" ];
-      wantedBy = [ "graphical-session.target" ];
-      serviceConfig = {
-        ExecStart =
-          let
-            cmds = [
-              "timeout 300 '${pkgs.systemd}/bin/systemctl suspend'"
-              "before-sleep '${pkgs.systemd}/bin/loginctl lock-session'"
-              "lock '${pkgs.hyprlock}/bin/hyprlock'"
-            ];
-          in
-          "${pkgs.swayidle}/bin/swayidle -w ${builtins.concatStringsSep " " cmds}";
-        Restart = "on-failure";
       };
     };
   };

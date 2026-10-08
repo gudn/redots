@@ -7,10 +7,7 @@
 }:
 {
   imports = [
-    ./fuzzel.nix
-    ./mako.nix
-    ./swaybg.nix
-    ./waybar.nix
+    ./niri.nix
   ];
 
   options = {
@@ -25,18 +22,19 @@
       }
     ];
 
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = [ "gtk" ];
+    };
+
     home.packages = with pkgs; [
       adwaita-icon-theme
-      brightnessctl
-      pavucontrol
-      swaybg
-      wireplumber
+      liberation_ttf
+      nerd-fonts.jetbrains-mono
     ];
 
-    xdg.configFile = {
-      "niri/config.kdl".source = ./niri.kdl;
-      "hypr/hyprlock.conf".source = ./hyprlock.conf;
-    };
+    fonts.fontconfig.enable = true;
 
     home.pointerCursor = {
       enable = true;
