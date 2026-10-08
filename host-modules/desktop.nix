@@ -48,7 +48,27 @@
         HandlePowerKey = "suspend";
         HandlePowerKeyLongPress = "poweroff";
       };
-      displayManager.ly.enable = true;
+      displayManager.noctalia-greeter = {
+        enable = true;
+        settings = {
+          session.default = "niri";
+          keyboard = {
+            layout = "us,ru";
+            options = "grp:toggle,grp:win_space_toggle,ctrl:nocaps";
+          };
+          appearance = {
+            scheme = "Gruvbox";
+            scheme_selector_position = "hidden";
+            password_style = "default";
+            hide_logo = true;
+            theme_mode = "dark";
+          };
+          cursor = {
+            path = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Classic";
+          };
+        };
+      };
     };
 
     programs.niri.enable = true;

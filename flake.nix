@@ -16,6 +16,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,6 +30,7 @@
       home-manager,
       nur,
       nix-index-database,
+      noctalia-greeter,
       ...
     }:
     {
@@ -34,6 +39,7 @@
           imports = [
             home-manager.nixosModules.default
             nur.modules.nixos.default
+            noctalia-greeter.nixosModules.default
 
             ./host-modules
           ];
