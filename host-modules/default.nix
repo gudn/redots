@@ -1,15 +1,7 @@
 {
-  config,
-  inputs,
-  ...
-}:
-{
   imports = [
     ./desktop.nix
     ./flipperzero.nix
-
-    inputs.home-manager.nixosModules.default
-    inputs.nur.modules.nixos.default
   ];
 
   config = {
@@ -27,19 +19,6 @@
         automatic = true;
         dates = [ "weekly" ];
       };
-    };
-
-    nixpkgs = {
-      config.allowUnfree = true;
-      overlays = [
-        inputs.rust-overlay.overlays.default
-        (final: prev: {
-          unstable = import inputs.nixpkgs-unstable {
-            config = final.config;
-            system = config.nixpkgs.hostPlatform.system;
-          };
-        })
-      ];
     };
 
     boot.loader.systemd-boot.enable = true;
@@ -63,15 +42,6 @@
       LC_PAPER = "ru_RU.UTF-8";
       LC_TELEPHONE = "ru_RU.UTF-8";
       LC_TIME = "ru_RU.UTF-8";
-    };
-
-    home-manager = {
-      sharedModules = [
-        ../home-modules
-        inputs.nix-index-database.homeModules.default
-      ];
-      useUserPackages = true;
-      useGlobalPkgs = true;
     };
 
     programs.command-not-found.enable = false;

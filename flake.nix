@@ -12,10 +12,6 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,29 +25,50 @@
       nixpkgs-unstable,
       home-manager,
       nur,
-      rust-overlay,
       nix-index-database,
       ...
     }:
     {
       nixosModules = {
-        host-modules = ./host-modules;
-      };
-      nixosConfigurations = {
-        udn-laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inputs = {
-              inherit
-                home-manager
-                nixpkgs-unstable
-                nur
-                rust-overlay
-                nix-index-database
-                ;
+        default = { config, ... }: {
+          imports = [
+            home-manager.nixosModules.default
+            nur.modules.nixos.default
+
+            ./host-modules
+          ];
+
+          config = {
+            nixpkgs = {
+              config.allowUnfree = true;
+              overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    config = final.config;
+                    system = config.nixpkgs.hostPlatform.system;
+                  };
+                })
+              ];
+            };
+
+            home-manager = {
+              sharedModules = [
+                nix-index-database.homeModules.default
+
+                ./home-modules
+              ];
+              useUserPackages = true;
+              useGlobalPkgs = true;
             };
           };
+        };
+      };
+
+      nixosConfigurations = {
+        udn-laptop = nixpkgs.lib.nixosSystem {
           modules = [
-            self.nixosModules.host-modules
+            self.nixosModules.default
+
             ./hosts/udn-laptop
           ];
         };

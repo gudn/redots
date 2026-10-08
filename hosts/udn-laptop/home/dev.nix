@@ -3,49 +3,16 @@
   config = {
     redots.code.nix.enable = true;
 
-    home.packages =
-      let
-        rust = (
-          pkgs.rust-bin.stable.latest.default.override {
-            extensions = [
-              "rust-src"
-              "rust-docs"
-              "rust-analyzer"
-              "clippy"
-              "rustfmt"
-            ];
-          }
-        );
-      in
-      with pkgs;
-      [
-        clang
-        clang-tools
-        gdb
-        go
-        nixfmt
-        gopls
-        gradle_9
-        jdk25
-        lldb
-        mitmproxy
-        nixfmt
-        nodejs_24
-        rizin
-        rust
-        unstable.julia
-      ];
+    home.packages = with pkgs; [
+      mitmproxy
+      nixfmt
+      unstable.julia
+    ];
 
     services.podman = {
       enable = true;
     };
 
     programs.uv.enable = true;
-
-    xdg.configFile = {
-      "rustfmt/rustfmt.toml".source = (pkgs.formats.toml { }).generate "rustfmt-config" {
-        tab_spaces = 2;
-      };
-    };
   };
 }
