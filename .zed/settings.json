@@ -1,7 +1,0 @@
-{
-  "languages": {
-    "CSS": {
-      "enable_language_server": false,
-    },
-  },
-}
