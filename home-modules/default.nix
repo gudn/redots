@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./btop.nix
     ./code
     ./desktop
     ./firefox.nix

@@ -45,6 +45,7 @@ in
       lazygit.enable = true;
       fish.enable = true;
       helix.enable = true;
+      btop.enable = true;
     };
 
     programs.zoxide.enable = true;
