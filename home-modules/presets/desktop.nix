@@ -25,16 +25,5 @@
       wtype
       wl-clipboard
     ];
-
-    home.file.lock = {
-      target = "bin/lock";
-      executable = true;
-      text = ''
-        #!/bin/sh
-
-        exec ${pkgs.systemd}/bin/loginctl lock-session
-      '';
-    };
-
   };
 }

@@ -39,5 +39,9 @@
         "Game"
       ];
     };
+
+    programs.noctalia.settings = {
+      shell.avatar_path = ./avatar.jpg;
+    };
   };
 }

@@ -8,6 +8,7 @@
 {
   imports = [
     ./niri.nix
+    ./noctalia.nix
   ];
 
   options = {
