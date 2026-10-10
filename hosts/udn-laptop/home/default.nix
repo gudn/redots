@@ -17,10 +17,8 @@
     home.packages = with pkgs; [
       ffmpeg
       gimp
-      mitmproxy
       qFlipper
       steam
-      unstable.julia
       wireshark
     ];
 

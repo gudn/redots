@@ -75,6 +75,7 @@ in
       gnuplot
       gost
       jq
+      mitmproxy
       nmap
       p7zip
       parallel
@@ -83,6 +84,7 @@ in
       rsync
       socat
       sqlite-interactive
+      unstable.julia
       unzip
       wget
       zip
