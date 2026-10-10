@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
   config = {
-    redots.code.nix.enable = true;
-
     home.packages = with pkgs; [
       mitmproxy
       nixfmt
