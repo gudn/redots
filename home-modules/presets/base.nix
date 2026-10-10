@@ -56,6 +56,13 @@ in
       fish.interactiveShellInit = lib.mkIf config.redots.fish.enable ''
         source ${rennn}/share/quitcd/quitcd.fish
       '';
+      direnv = {
+        enable = true;
+        enableBashIntegration = true;
+        enableFishIntegration = config.redots.fish.enable;
+        nix-direnv.enable = true;
+      };
+      git.ignores = lib.mkIf config.redots.git.enable [ ".direnv/ " ];
     };
 
     home.packages = with pkgs; [

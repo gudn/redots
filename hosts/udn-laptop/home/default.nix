@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./dev.nix
-  ];
-
   config = {
     redots = {
       user.fullname = "Daniil Novoselov";
@@ -19,27 +15,16 @@
     home.stateVersion = "26.05";
 
     home.packages = with pkgs; [
-      blender
       ffmpeg
       gimp
-      steam
-      wireshark
+      mitmproxy
       qFlipper
+      steam
+      unstable.julia
+      wireshark
     ];
 
-    xdg.desktopEntries.steam-offload = {
-      name = "Steam Offload";
-      icon = "steam";
-      exec = "nvidia-offload ${pkgs.steam}/bin/steam %U";
-      terminal = false;
-      type = "Application";
-      categories = [
-        "Network"
-        "FileTransfer"
-        "Game"
-      ];
-    };
-
+    services.podman.enable = true;
     programs.noctalia.settings = {
       shell.avatar_path = ./avatar.jpg;
     };

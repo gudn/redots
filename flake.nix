@@ -38,6 +38,10 @@
       noctalia,
       ...
     }:
+    let
+      systems = [ "x86_64-linux" ];
+      forEachSystem = nixpkgs.lib.genAttrs systems;
+    in
     {
       nixosModules = {
         default = { config, ... }: {
@@ -85,5 +89,18 @@
           ];
         };
       };
+
+      devShells = forEachSystem (system: {
+        default =
+          let
+            pkgs = import nixpkgs { inherit system; };
+          in
+          pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              nixfmt
+              nixd
+            ];
+          };
+      });
     };
 }
