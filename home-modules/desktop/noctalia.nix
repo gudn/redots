@@ -100,7 +100,7 @@
           mode = "dark";
           source = "community";
           builtin = "Gruvbox";
-          community_pallete = "Gruvbox Material Hard";
+          community_palette = "Oxocarbon";
         };
         wallpaper = {
           enabled = true;
@@ -138,7 +138,7 @@
             };
             suspend = {
               enabled = true;
-              timeout = 30;
+              timeout = 330;
               action = "suspend";
             };
           };
