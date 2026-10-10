@@ -69,15 +69,19 @@ in
       aria2
       atool
       binwalk
+      dig
       fastfetch
       fd
       gnuplot
+      gost
       jq
+      nmap
       p7zip
       parallel
       rennn
       ripgrep
       rsync
+      socat
       sqlite-interactive
       unzip
       wget
