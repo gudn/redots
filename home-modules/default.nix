@@ -29,6 +29,8 @@
   };
 
   config = {
+    programs.bash.enable = true;
+
     home.preferXdgDirectories = true;
 
     xdg = {

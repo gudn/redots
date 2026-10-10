@@ -48,7 +48,16 @@ in
       btop.enable = true;
     };
 
-    programs.zoxide.enable = true;
+    programs = {
+      zoxide.enable = true;
+      bash.initExtra = ''
+        source ${rennn}/share/quitcd/quitcd.bash_sh_zsh
+      '';
+      fish.interactiveShellInit = lib.mkIf config.redots.fish.enable ''
+        source ${rennn}/share/quitcd/quitcd.fish
+      '';
+    };
+
     home.packages = with pkgs; [
       aria2
       atool
