@@ -102,5 +102,7 @@
             ];
           };
       });
+
+      formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }
