@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   osConfig,
@@ -185,6 +184,25 @@
                 "brightness-down"
               ];
             };
+
+            XF86AudioPlay.spawn = [
+              noctalia
+              "msg"
+              "media"
+              "toggle"
+            ];
+            XF86AudioPrev.spawn = [
+              noctalia
+              "msg"
+              "media"
+              "previous"
+            ];
+            XF86AudioNext.spawn = [
+              noctalia
+              "msg"
+              "media"
+              "next"
+            ];
 
             "Mod+O" = {
               _props.repeat = false;
