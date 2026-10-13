@@ -20,6 +20,8 @@
           clipboard_keep_from_closed_apps = true;
           clipboard_auto_paste = "off";
 
+          mpris.blacklist = [ "TelegramDesktop" ];
+
           panel = {
             wallpaper_show_names = false;
             open_near_click_control_center = true;
