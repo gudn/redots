@@ -23,12 +23,6 @@
       }
     ];
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = [ "gtk" ];
-    };
-
     home.packages = with pkgs; [
       adwaita-icon-theme
       liberation_ttf

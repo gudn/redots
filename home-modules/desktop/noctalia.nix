@@ -28,6 +28,7 @@
           };
 
           launcher = {
+            layout = "simple";
             categories = false;
             compact = true;
             sort_by_usage = true;
