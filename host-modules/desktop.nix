@@ -74,7 +74,7 @@
           };
           cursor = {
             path = pkgs.bibata-cursors;
-            name = "Bibata-Modern-Classic";
+            theme = "Bibata-Modern-Classic";
           };
         };
       };
