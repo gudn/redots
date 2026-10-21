@@ -9,6 +9,11 @@
   redots = {
     desktop.enable = true;
     flipperzero.enable = true;
+    pcap = {
+      enable = true;
+      dumpcap.enable = true;
+      tcpdump.enable = true;
+    };
   };
 
   services.xserver.videoDrivers = [
@@ -43,6 +48,7 @@
       "networkmanager"
       "input"
       "dialout"
+      "pcap"
     ];
   };
   home-manager.users.udn = ./home;
