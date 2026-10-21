@@ -24,6 +24,7 @@
       usbutils
       wtype
       wl-clipboard
+      wl-mirror
     ];
   };
 }

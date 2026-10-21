@@ -70,7 +70,6 @@ in
       atool
       binwalk
       dig
-      fastfetch
       fd
       gnuplot
       gost
